@@ -7,6 +7,7 @@ import {
 } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { map, Observable, tap } from 'rxjs';
+import { IUserDto } from '@app/common';
 
 @Injectable()
 export class JwtAuthGuard implements CanActivate {
@@ -22,7 +23,7 @@ export class JwtAuthGuard implements CanActivate {
     }
 
     return this.authClient
-      .send('authenticate', {
+      .send<IUserDto>('authenticate', {
         Authentication: jwt,
       })
       .pipe(
