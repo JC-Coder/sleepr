@@ -11,6 +11,10 @@ import * as Joi from 'joi';
       isGlobal: true,
       validationSchema: Joi.object({
         PORT: Joi.number().required(),
+        SMTP_USER: Joi.string().required(),
+        SMTP_CLIENT_ID: Joi.string().required(),
+        SMTP_CLIENT_SECRET: Joi.string().required(),
+        SMTP_REFRESH_TOKEN: Joi.string().required(),
       }),
     }),
     LoggerModule,
